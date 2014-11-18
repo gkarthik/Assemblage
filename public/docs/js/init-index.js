@@ -7,7 +7,7 @@ $(document).ready(function() {
        _tags = $('#tags'),       // The navigation menu
        _options = $(".options"), // The options (sorting) div
        _footer = $('#footer'),   // The footer
-       
+       duration = 10,
        clickedOnOptions = false;
    
    // Hide project preview boxes.
@@ -44,13 +44,13 @@ $(document).ready(function() {
       _tags.data('actproj',setTimeout(function() {
       $(".project").not("."+_id).removeClass("projectActive");
       $( "."+_id ).addClass("projectActive");
-      },600));
-      // Tooltip fadein
-      _this.data('tipdelay',setTimeout(function() {_this.find('#tip').fadeIn(200)},800));
+      },duration));
+      //SHow TIp
+      _this.find("#tip").show();
       // Expand navigation if not expanded already.
       clearTimeout(_tags.data('compacttags'));
       if (_tags.is(".compact")) {
-         _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").freetile()},240));
+         _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").freetile()},duration));
       }
    }).mouseleave(function() {
       _this=$(this);
@@ -58,8 +58,7 @@ $(document).ready(function() {
       clearTimeout(_tags.data('actproj'));
       $(".project").removeClass("projectActive");
       // Tooltip fadeout
-      clearTimeout(_this.data('tipdelay'));
-      _this.find('#tip').fadeOut(420);
+      _this.find("#tip").hide();
    });
    
    // Tag area mouseover and mouseout behavior.
@@ -67,25 +66,25 @@ $(document).ready(function() {
       // Clear compact timeout and options fadeout timeout
       clearTimeout(_options.data('invis'));
       clearTimeout(_tags.data('compacttags'));
-      _options.fadeIn(200);
+      _options.fadeIn(duration);
    }).mouseleave(function() {
       //Compact navigation
       clearTimeout(_tags.data('expandtags'));
       if (!_tags.is(".compact")) {
          _tags.data('compacttags',setTimeout(function() {_tags.addClass("compact").freetile()},800));
       }
-      _options.data('invis',setTimeout(function() {_options.fadeOut(500)},800));
+      _options.data('invis',setTimeout(function() {_options.fadeOut(duration)},duration));
    }).click(function() {
       // Expand navigation only if click was outside the options (sorting) area.
       if (!clickedOnOptions) {
          clearTimeout(_tags.data('compacttags'));
          if (_tags.is(".compact")) {
-            _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").freetile()},100));
+            _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").freetile()},duration));
          }
       }
       clickedOnOptions = false;
       // Fade options pane in
-      _options.fadeIn(200);
+      _options.fadeIn(duration);
    });
    
    // Cancel tags panel expansion if clicked on the options pane.
@@ -196,7 +195,7 @@ $(document).ready(function() {
             var _w = $('#outer-container').width(),
                 _n = parseInt(_w/_c);
             _it.width(_n*_c-20);
-         }, 200) );
+         }, duration) );
       });
    });
 });

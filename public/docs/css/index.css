@@ -23,6 +23,24 @@ body {
   text-decoration:none;
 }
 
+.rt {
+  font-size:10px;
+  padding:8px 0;
+  margin:1.4em 0;
+  min-width:620px;
+  border-top:1px solid #ddd;
+}
+
+.rt .navitem {
+  margin:0 1.2em 0 0;
+}
+
+.rt .navitem .shorturllabel {
+  position:relative;
+  display:none;
+  color: #999;
+}
+
 a {
   text-decoration:none;
 }
@@ -120,7 +138,7 @@ img { border: none }
 }
 
 .compact .tag:after {
-  content:"  ⟩ ";
+  content:"  // ";
 }
 
 .nestInvis {

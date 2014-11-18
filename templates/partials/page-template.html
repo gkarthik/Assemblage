@@ -17,13 +17,13 @@
     <link rel="stylesheet" href="@root_path/public/docs/fontkit/stylesheet.css" type="text/css"/>
     <link rel="shortcut icon" href="@root_path/content/favicon.ico" />
   </head>
-  <body  if @background do style="background-image:url('@root_path/content/@background');" endif>
+  <body  f @background do style="background-image:url('@root_path/content/@background');" endif>
 	:noscript
     <div id="outer-container"><div id="inner-container">
       <div class="topbar">
+	  :navbar
 	  :title
       </div>
-	  :navbar
       
 	  :title-subtitle
       
@@ -44,7 +44,6 @@
 	  :disqus
 	  if $images do :fb-like endif
 	  
-	  :navbar
     </div></div>
 	<div id="outer-preview-container"><div id="inner-preview-container">
 	:preview-boxes
@@ -60,16 +59,10 @@
 	<script type="text/javascript" src="@root_path/public/docs/jsmin/jquery.tinysort.min.js"></script>
 
 	<script type="text/javascript" src="@root_path/public/docs/jsmin/gallery.min.js"></script>
-	<script type="text/javascript" src="@root_path/public/docs/jsmin/init-page.min.js"></script>
-        <script type="text/javascript">
-	// Sharing button config...
-	  var addthis_config = {
-	    ui_offset_top: 12,
-	    ui_delay: 300,
-	    ui_use_css: false
-	  }
-	</script>
-	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
+	<script type="text/javascript" src="@root_path/public/docs/jsmin/init-page.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-546a84650e52223a" async="async"></script>
+
 	:extra-html
   </body>
 </html>

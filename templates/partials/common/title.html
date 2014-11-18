@@ -1,1 +1,4 @@
-get "/about" do <h3><a id="main-title" href="@url">@name if @profession do / @profession endif</a></h3> end
+get "/about" do <h3><a id="main-title" href="http://@base_url">@name</a><br><br>
+if @profession do @profession endif
+if @email do @email endif
+</h3> end
